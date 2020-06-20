@@ -3,6 +3,7 @@ package com.nt.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,6 +31,7 @@ public class MainControllerServlet extends HttpServlet {
 		 PrintWriter pw=null;
 		 EmployeeDTO dto=null;
 		 String result=null;
+		 ServletContext sc=null;
 		 
 		//read form dataa  and store in VO class object
 		 vo=new EmployeeVO();
@@ -58,7 +60,10 @@ public class MainControllerServlet extends HttpServlet {
 			 e.printStackTrace();
 		 }
 		//add hyperlink
-		 pw.println("<br><br> <a href='employee_register.html'>home</a>");
+		 pw.println("<br><br> <a href='employee_register.jsp'>home</a>");
+		 //get Access to SErvletContext object
+		 sc=getServletContext();
+		 pw.println("<br><br>  req count:::"+sc.getAttribute("reqCount"));
 		 //close stream
 		 pw.close();
 		
