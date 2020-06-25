@@ -1,0 +1,49 @@
+
+
+<h1 style="color:red;text-align:center">Search for Books</h1>
+  <h3 id="categoryError" style="color:red;text-align:center">  </h3>
+<form action="controller"  method="post"  target="f2"  name="frm">
+     <table border="1"  bgcolor="cyan"  align="center">
+           <tr>
+              <td>Select Book categorie(s) </td>
+              <td>
+                 <select name="category"  multiple  >
+                     <option value="java"> JAVA </option>
+                     <option value=".net"> .NET </option>
+                     <option value="php"> PHP </option>
+                     <option value="oracle"> Oracle </option>
+                 </select>
+              </td>
+           </tr>     
+           <tr>
+               <td><input type="button"  value="ExcelOutput" onclick="isExcel()">  </td>
+               <td><input type="button"  value="HtmlOutput" onclick="isHtml()">  </td>
+           </tr> 
+           <tr>
+               <td colspan="2"><input type="hidden" name="source"> </td>   
+           </tr>
+     </table>
+</form>
+
+  <script language="JavaScript">
+      function isHtml(){
+    	  frm.source.value="html";
+    	  validate();
+      }
+      function isExcel(){
+    	  frm.source.value="excel";
+    	  validate();
+      }
+      
+      function validate(){   //for form validations
+    	  if(frm.category.value==""){
+    		  document.getElementById("categoryError").innerHTML="you must select atleast one category";
+    		  return false;
+    	  }
+    	  else{
+    		  document.getElementById("categoryError").innerHTML="";
+    		  frm.submit();  //form submission
+    		  return true;
+    	  }//else
+      }//function
+  </script>
