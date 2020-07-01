@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"  import="java.util.*,com.nt.dto.BookDTO"%>
     
     <%
@@ -43,6 +43,42 @@
         	   frames.focus();
         	   frames.print();
            }
+      </script>   --%>
+      
+      <%@taglib uri="http://java.sun.com/jsp/jstl/core"   prefix="c"%>
+      
+      <c:choose>
+         <c:when  test="${!empty listDTO }">
+             <table border="1"  bgcolor="pink">
+                <tr bgcolor="red">
+     	           <th>SerialNo </th>  <th>BookId </th> <th>BookName </th> <th> Category </th> <th>Author </th> <th>Price </th> <th>Publisher </th> <th>Status </th>
+    	      </tr>
+    	      <c:forEach var="dto" items="${listDTO}">
+    	            <tr>
+    	               <td>${dto.serialNo}</td>
+    	               <td>${dto.bookId}</td>
+    	               <td>${dto.bookName}</td>
+    	               <td>${dto.category}</td>
+    	               <td>${dto.author}</td>
+    	               <td>${dto.price}</td>
+    	               <td>${dto.publisher}</td>
+    	               <td>${dto.status}</td>
+    	            </tr>
+    	      </c:forEach>
+             </table>
+         </c:when>
+         <c:otherwise>
+                  <h1 style="color:red;text-align:center">No Books found </h1>
+         </c:otherwise>
+      </c:choose>
+      
+     <br><br>
+       <a href="JavaScript:doPrint()">print</a> <br>
+     
+      <script language="JavaScript">
+           function doPrint(){
+        	   frames.focus();
+        	   frames.print();
+           }
       </script>  
-    
     

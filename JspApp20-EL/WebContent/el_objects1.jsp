@@ -23,6 +23,12 @@
        ------------------------------- <br>
       <b> sname req param value:: ${param.sname}</b> <br>
       <b> sadd req parma values :: ${paramValues.sadd[0] },${paramValues.sadd[1] } </b>
+      
+      -------------------------------------<br>
+      <br> user-agent  req header value ::  ${header['user-agent'] }  <br>
+      <br> accept-languages  req header values :: ${headerValues['accept-language'][0] },
+                                                                                    ${headerValues['accept-language'][1] } <br>
+      
        
        
        
